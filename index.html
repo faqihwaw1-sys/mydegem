@@ -31,6 +31,7 @@
       100% { background-position: 0% 50%; }
     }
 
+    /* Floating Hearts + Balloons Background */
     .bg-hearts {
       position: fixed;
       top: 0; left: 0;
@@ -61,6 +62,7 @@
       50% { opacity: 1; transform: scale(1.2); }
     }
 
+    /* Floating Music Control */
     .music-btn {
       position: fixed;
       top: 15px; right: 15px;
@@ -78,6 +80,7 @@
     }
     .music-btn:active { transform: scale(0.92); }
 
+    /* Progress Dots */
     .progress-dots {
       position: fixed;
       top: 15px; left: 50%;
@@ -98,6 +101,7 @@
       box-shadow: 0 0 8px rgba(255,42,85,0.7);
     }
 
+    /* Main Card */
     .card-container {
       position: relative;
       z-index: 10;
@@ -250,6 +254,7 @@
       to { opacity: 1; transform: translateX(0); }
     }
 
+    /* Love meter bar */
     .love-meter-wrap {
       background: #ffe0e6;
       border-radius: 20px;
@@ -295,34 +300,37 @@
   </div>
 
   <audio id="bgMusic" loop preload="auto">
-    <source src="srcc/The%201975%20-%20About%20You%20(Official).mp3" type="audio/mpeg">
+    <source src="../srcc/The%201975%20-%20About%20You%20(Official).mp3" type="audio/mpeg">
   </audio>
   <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
 
   <div class="card-container">
 
+    <!-- PAGE 1: Intro -->
     <div class="page active" id="page1">
-      <img src="srcc/degem4.jpeg" class="hero-photo">
-      <h1>Halo [Nama Dia]! 🎉✨</h1>
+      <img src="../srcc/degem5.jpeg" class="hero-photo">
+      <h1>Halo Nabila Lutfi Aryanti! 🎉✨</h1>
       <p>Aku ada petualangan kecil buat kamu. Klik tombol di bawah buat mulai ya!</p>
       <button class="btn" onclick="nextPage(2); playAudio();">Mulai Petualangan 🚀</button>
     </div>
 
+    <!-- PAGE 2: Memory Gallery -->
     <div class="page" id="page2">
       <h1>Foto Cantik Kamu 📸</h1>
       <div class="photo-grid">
-        <img src="srcc/degem1.jpeg" class="photo">
-        <img src="srcc/degem2.jpeg" class="photo">
-        <img src="srcc/degem3.jpeg" class="photo">
-        <img src="srcc/degem5.jpeg" class="photo">
+        <img src="../srcc/degem1.jpeg" class="photo">
+        <img src="../srcc/degem10.jpeg" class="photo">
+        <img src="../srcc/degem3.jpeg" class="photo">
+        <img src="../srcc/degem9.jpeg" class="photo">
       </div>
-      <p>Setiap momen bareng kamu selalu jadi hal favoritku!</p>
-      <button class="btn" onclick="nextPage(3)">Ingat Momen Ini? 💭</button>
+      <p>Semua tentang kamu selalu jadi hal favoritku!</p>
+      <button class="btn" onclick="nextPage(3)">Cantikkan calon pacar akuu 💭</button>
     </div>
 
+    <!-- PAGE 3: Cerita Awal Ketemu -->
     <div class="page" id="page3">
       <h1>Awal Cerita Kita... 📖</h1>
-      <img src="srcc/degem%206.jpeg" class="hero-photo">
+      <img src="../srcc/degem%206.jpeg" class="hero-photo">
       <div class="story-box">
        Siapa yang menyangka ya? Awalnya kita cuma sebatas Student Mentor dan Maba di kelompok pendampingan.<br><br>
        Waktu itu aku beneran lagi menikmati masa-masa sendiri. Tapi tiba-tiba kamu datang, chat nanya ini-itu, dan obrolan kita mengalir gitu aja tanpa terkesan dipaksa.<br><br>
@@ -331,6 +339,7 @@
       <button class="btn" onclick="nextPage(4)">Kenapa Kamu Spesial? 💖</button>
     </div>
 
+    <!-- PAGE 4: Reasons -->
     <div class="page" id="page4">
       <h1>Kenapa Harus Kamu? 🤔</h1>
       <div class="badge">✨ Senyum kamu selalu bisa bikin hariku cerah.</div>
@@ -340,6 +349,7 @@
       <button class="btn" onclick="nextPage(5)">Cek Love Meter Kita 💗</button>
     </div>
 
+    <!-- PAGE 5: Love Meter (fun mini interactive) -->
     <div class="page" id="page5">
       <h1>Love Meter Kita 💗</h1>
       <p>Klik tombolnya buat lihat seberapa cocok kita!</p>
@@ -350,8 +360,9 @@
       <button class="btn" style="display:none;" id="toQuestionBtn" onclick="nextPage(6)">Ada Pertanyaan Penting... 💌</button>
     </div>
 
+    <!-- PAGE 6: The Confession -->
     <div class="page" id="page6">
-      <img src="srcc/degem7.jpeg" class="hero-photo">
+      <img src="../srcc/degem8.jpeg" class="hero-photo">
       <h1>Will You Be My Girlfriend? ❤️</h1>
       <p>Mau gak kita jalanin hari-hari seru ke depan berdua aja?</p>
 
@@ -361,6 +372,7 @@
       </div>
     </div>
 
+    <!-- PAGE 7: Success Celebration -->
     <div class="page" id="pageSuccess">
       <h1>YAAAY! BEST DAY EVER! 🎉🥳💖</h1>
       <p>Makasih udah terima aku! Resmi pacaran nih ya! 🤪✨</p>
@@ -371,6 +383,7 @@
   </div>
 
   <script>
+    // ---------- Audio ----------
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicBtn');
     let isPlaying = false;
@@ -379,21 +392,22 @@
       if (!isPlaying) {
         music.play().catch(()=>{});
         isPlaying = true;
-        musicBtn.innerHTML = '⏸️ Pause Music';
+        musicBtn.innerHTML = "⏸️ Pause Music";
       }
     }
 
     function toggleMusic() {
       if (isPlaying) {
         music.pause();
-        musicBtn.innerHTML = '🎵 Play Music';
+        musicBtn.innerHTML = "🎵 Play Music";
       } else {
         music.play().catch(()=>{});
-        musicBtn.innerHTML = '⏸️ Pause Music';
+        musicBtn.innerHTML = "⏸️ Pause Music";
       }
       isPlaying = !isPlaying;
     }
 
+    // ---------- Floating Hearts + Sparkles Background ----------
     const heartsContainer = document.getElementById('heartsContainer');
     const heartIcons = ['❤️', '💖', '✨', '🌸', '💕', '🎈'];
 
@@ -416,6 +430,8 @@
       heartsContainer.appendChild(sparkle);
     }
 
+    // ---------- Page Navigation ----------
+    // target: nomor halaman (2-6) sesuai id="pageN", atau 'Success' untuk halaman terakhir
     function updateDots(target) {
       const dots = document.querySelectorAll('.dot');
       if (target === 'Success') {
@@ -423,7 +439,7 @@
         return;
       }
       document.getElementById('progressDots').style.display = 'flex';
-      const activeIndex = target - 1;
+      const activeIndex = target - 1; // page2 -> dot index 1, dst.
       dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
     }
 
@@ -443,9 +459,10 @@
       });
     }
 
+    // ---------- Love Meter Mini Interaction ----------
     function runLoveMeter() {
       const fill = document.getElementById('loveFill');
-      const percent = Math.floor(Math.random() * 6) + 95;
+      const percent = Math.floor(Math.random() * 6) + 95; // always high, 95-100%
       fill.style.width = percent + '%';
       fill.innerText = percent + '%';
       miniConfettiBurst();
@@ -454,6 +471,7 @@
       }, 1700);
     }
 
+    // ---------- Ultra Tricky "No" Button ----------
     let scaleBtn = 1;
     function moveButton() {
       const btn = document.getElementById('noBtn');
@@ -472,6 +490,7 @@
       btn.innerText = texts[Math.floor(Math.random() * texts.length)];
     }
 
+    // ---------- Success Confetti + Fireworks ----------
     function acceptProposal() {
       const duration = 4 * 1000;
       const end = Date.now() + duration;
@@ -491,9 +510,10 @@
       document.getElementById('progressDots').style.display = 'none';
     }
 
+    // ---------- WhatsApp Direct Link ----------
     function sendWhatsApp() {
-      const phoneNumber = '6282269881373';
-      const message = encodeURIComponent('Iya aku mau jadi pacar kamu! ❤️🎉✨');
+      const phoneNumber = "6282269881373"; // Ganti dengan nomor WA kamu
+      const message = encodeURIComponent("Iya aku mau jadi pacar kamu! ❤️🎉✨");
       window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
     }
   </script>
